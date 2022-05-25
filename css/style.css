@@ -1,0 +1,46 @@
+
+* {
+    box-sizing: border-box;
+  }
+
+.form-control {
+background-color: #E7E7E7!important;
+border: transparent!important;
+
+}
+
+.btn-search {
+    background-color: #E7E7E7!important;
+    border: transparent;
+    font-size: 18px;
+    border-radius: 0px 5px 5px 0;
+    
+}
+
+.input_ingredients {
+    background-color: #3282F7;
+    border: transparent;
+    border-radius: 2px;
+    height: 45px;
+}
+
+.input_appareils {
+    background-color: #68D9A4;
+    border: transparent;
+    border-radius: 2px;
+    height: 45px;
+}
+
+.input_ustensiles {
+    background-color:  #ED6454;
+    border:transparent;
+    border-radius: 2px;
+    height: 45px;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white;
+    opacity: 1; /* Firefox */
+    margin-left:4px;
+  }
+
