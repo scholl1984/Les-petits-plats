@@ -1,34 +1,64 @@
 import {recipes} from '../data/recipes.js';
 
+// display card recettes //
 
+recipes.map((receipe) => {
 
-recipes.map((receipe, index) => {
-    const {id, name, time, description, ingredients} = receipe      
-    let receipCard = document.querySelector(".recettes_container")
-    const card = document.createElement( 'article' );
-    const img = document.createElement( 'img' );
-    console.log({receipe})    
+    const {id, name, time, description, ingredients} = receipe  
+    const receipCard = document.querySelector(".recettes_container")
+    const article = document.createElement( 'article' );
+    const img = document.createElement( 'img' );   
+    const cardBody = document.createElement( 'div' );
+    const div1 = document.createElement( 'div' );
+    const div2 = document.createElement( 'div' );
+    const divName = document.createElement( 'h5' );
+    const divTime = document.createElement( 'p' );
+    const cardUl = document.createElement( 'ul' );
+    const divDescription = document.createElement( 'p' );
+
+    receipCard.appendChild(article);
+    article.appendChild(img)
+    article.appendChild(cardBody)
     img.style.width = '300px'
-    img.style.height = '100px'
-    const cardBody = document.createElement( 'ul' );
-    cardBody.setAttribute('id', `cardbody-${id}`);
-    cardBody.setAttribute('key', `key-${id}`);
-    card.textContent = id;
-    card.appendChild(img)
-    receipCard.appendChild(card);
-    
-    ingredients.map((item, i) => {
-        console.log(`${item.ingredient}:${item.quantity}` )
+    img.style.height = '100px' 
+    cardBody.setAttribute("class", "cardBody")
+    cardBody.appendChild(div1)
+    cardBody.appendChild(div2)
+    div1.setAttribute("class", "div1")
+    div1.appendChild(divName)
+    div1.appendChild(divTime)
+    divName.setAttribute("class", "divName")
+    divTime.setAttribute("class", "divTime")
+    divName.textContent = name
+    divTime.textContent = time
+    div2.setAttribute("class", "div2")
+    div2.appendChild(cardUl);
+    div2.appendChild(divDescription);   
+    cardUl.setAttribute("class", "cardUl")
+    cardUl.setAttribute('id', `cardUl-${id}`);    
+    cardUl.setAttribute('key', `key-${id}`);
+
+    ingredients.map((item) => {
+        
         let recipeDetails = document.createElement( 'li' );
         recipeDetails.textContent = `${item.ingredient}:${item.quantity}`;                           
-        cardBody.appendChild(recipeDetails)
+        cardUl.appendChild(recipeDetails)
     }) 
-    card.appendChild(cardBody)
-        
-        // if (id) {
-            // receipCard.innerHTML = id
-            
-            
-            
-        }) 
 
+    divDescription.setAttribute("class", "divDescription")
+    divDescription.textContent = description
+    
+    filterSearchBar (receipe)  
+}) 
+
+
+function filterSearchBar (receipe) {
+
+        let inputSearchBar = document.querySelector('.principal-input');
+        
+        inputSearchBar.addEventListener('keyup', function(ev) {
+          let text = ev.target.value;
+          console.log(text)
+          console.log(receipe)
+        })
+}
