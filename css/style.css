@@ -3,6 +3,16 @@
     box-sizing: border-box;
   }
 
+a {
+    border: solid;
+    width: 300px;
+    height: 300px;
+}
+
+p {
+    font-size: 9px;
+}
+
 .form-control {
 background-color: #E7E7E7!important;
 border: transparent!important;
@@ -42,5 +52,12 @@ border: transparent!important;
     color: white;
     opacity: 1; /* Firefox */
     margin-left:4px;
+  }
+
+  .recettes_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 55px;
+    text-align: center;
   }
 
