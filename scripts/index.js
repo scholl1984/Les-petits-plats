@@ -44,21 +44,42 @@ recipes.map((receipe) => {
         recipeDetails.textContent = `${item.ingredient}:${item.quantity}`;                           
         cardUl.appendChild(recipeDetails)
     }) 
-
+    
     divDescription.setAttribute("class", "divDescription")
     divDescription.textContent = description
     
-    filterSearchBar (receipe)  
+    filterSearchBar (receipe, description, name)  
 }) 
 
-
-function filterSearchBar (receipe) {
-
+function filterSearchBar (receipe, description, name) {
+   
         let inputSearchBar = document.querySelector('.principal-input');
         
-        inputSearchBar.addEventListener('keyup', function(ev) {
-          let text = ev.target.value;
-          console.log(text)
-          console.log(receipe)
-        })
+            inputSearchBar.addEventListener('keyup', function(ev) {
+
+                var text = ev.target.value;
+                var pat = new RegExp(text, 'i');
+                var items = document.getElementsByTagName("article")
+
+                for (var i = 0; i < items.length; i++) {
+
+                                var item = items[i]
+
+                                if (!pat.test(item.innerText)) {
+                                    item.style.display = "none"
+                                } else {         
+                                    item.style.display = ""
+
+                                }
+                }
+          
+
+
+              
+                               
+        
+
+            
+            })                  
+
 }
